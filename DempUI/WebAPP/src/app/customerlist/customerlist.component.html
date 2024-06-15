@@ -1,0 +1,119 @@
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">CMS Application</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li *ngIf="isUserAuthenticated()" class="nav-item active">
+                <a class="nav-link" routerLink="/userdashboard">Dashboard</a>
+              </li>
+                <li *ngIf="isUserAuthenticated()" class="nav-item active">
+                    <a class="nav-link" routerLink="/customerlist">Customer</a>
+                  </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="logOut()">Logout</a>
+            </li>
+            
+          </ul>
+    </div>
+  </nav>
+  <div>
+    <form class="form-horizontal custForm" [formGroup]="customerForm" *ngIf="manageCustomer">
+        <h5>Add/Update Customer Details</h5>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">First Name :</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" required id="txtFirstName" placeholder="First Name" formControlName="firstName">
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">Last Name :</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" required id="txtLastName" formControlName="lastName" placeholder="Last Name">
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Email :</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" required id="txtEmail"  placeholder="Email" formControlName="email">
+            </div>
+          </div>
+        <br />
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Phone :</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" required id="txtPhone" placeholder="Phone" formControlName="phone">
+            </div>
+          </div>
+        <br />
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">Address :</label>
+          <div class="col-sm-4">
+            <textarea class="form-control" id="txtAddress" formControlName="address"
+              placeholder="Address"></textarea>
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="pwd">Additional Requirement :</label>
+            <div class="col-sm-4">
+              <textarea  class="form-control" id="txtAdditional" formControlName="additionalRequirement"
+                placeholder="Additional Requirement"></textarea>
+            </div>
+          </div>
+          <br />
+          <div class="form-group">
+           <div class="container">
+             <div class="row">
+               <div class="col-sm">
+                 <button type="submit" class="btnsave btn btn-primary" (click)="SubmitForm(customerForm.value)">Submit</button> 
+                 <button type="submit" class="btn btn-danger" (click)="Clear(customerForm.value)">Clear</button>
+               </div>
+             </div>
+         </div>
+         </div>
+    </form>
+    <div class="alert alert-success" style="text-align: center;" *ngIf="custometList"><b>Customer List</b>
+        <button type="button" class="btn1 applyle" matTooltip="Add Customer" (click)="addCustomer()">Add Customer</button>
+    </div>
+    <div class="table-responsive" style="text-align: center;" *ngIf="custometList">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Address</th>
+          <th scope="col">Additional Requirement</th>
+          <th scope="col">Status</th>
+          <th scope="col">CreatedDate</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cus of Customer | async; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          
+          <td>{{cus.firstName}}</td>
+          <td>{{cus.lastName}}</td>
+          <td>{{cus.email}}</td>
+          <td>{{cus.phone}}</td>
+          <td>{{cus.address}}</td>
+          <td>{{cus.additionalRequirement}}</td>
+          <td>{{cus.isActive==1?"Active":"In-Active"}}</td>
+          <td>{{cus.createdDate | date: 'dd/MM/yyyy'}}</td>
+          <td>
+            <button type="button" class="btn1" matTooltip="Click Edit Button" (click)="getCustomerForEdit(cus.customersId)">Edit</button>
+            <button type="button" class="btn1 btndelete" matTooltip="Click Delete Button" (click)="deleteData(cus.customersId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+  </div>

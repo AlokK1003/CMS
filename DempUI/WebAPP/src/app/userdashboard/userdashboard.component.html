@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">CMS Application</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li *ngIf="isUserAuthenticated()" class="nav-item active">
+            <a class="nav-link" routerLink="/userdashboard">Dashboard</a>
+          </li>
+            <li *ngIf="isUserAuthenticated()" class="nav-item active">
+                <a class="nav-link" routerLink="/customerlist">Customer</a>
+              </li>
+      </ul>
+      <span><a class="nav-link" (click)="logOut()">Logout</a></span>
+    </div>
+  </nav>
+  <div _ngcontent-pwr-c9="" class="">
+        <div _ngcontent-pwr-c9="" class="card card-profile">
+                <div _ngcontent-pwr-c9="" class="card-avatar">
+                        <a _ngcontent-pwr-c9="" href="javascript:void(0)">
+                            <img _ngcontent-pwr-c9="" class="img" src="./assets/img/faces/marc.jpg"></a>
+                        </div><div _ngcontent-pwr-c9="" class="card-body">
+                            <h6 _ngcontent-pwr-c9="" class="card-category text-gray">
+                            Welcome</h6><p _ngcontent-pwr-c9="" class="card-description"> 
+                                    Don't be scared of the truth because we need to restart 
+                                    the human foundation in truth
+                                </p><a _ngcontent-pwr-c9="" class="btn btn-danger btn-round" href="javascript:void(0)">Follow</a>
+                            </div></div>
+                        </div>
+                        <div _ngcontent-pwr-c5="" class="row rowmar">
+                        <div _ngcontent-pwr-c5="" class="col-lg-3 col-md-3 col-sm-3">
+                            <div _ngcontent-pwr-c5="" class="card card-stats">
+                            <div _ngcontent-pwr-c5="" class="card-header card-header-warning card-header-icon">
+                                <div _ngcontent-pwr-c5="" class="card-icon">
+                                    <i _ngcontent-pwr-c5="" class="material-icons">{{userYear}}</i>
+                                </div>
+                                <p _ngcontent-pwr-c5="" class="card-category">Total Customer</p>
+                                <h3 _ngcontent-pwr-c5="" class="card-title">{{totalCustomer}}
+                                    </h3></div>
+                                    <div _ngcontent-pwr-c5="" class="card-footer">
+                                        <div _ngcontent-pwr-c5="" class="stats">
+                                            
+                                            <a _ngcontent-pwr-c5="" routerLink="/userleave">
+                                                <i _ngcontent-pwr-c5="" class="material-icons text-success">More Details</i></a>
+                                            </div>
+                                        </div>
+                            </div>
+                            
+                        </div>
+                        <div _ngcontent-pwr-c5="" class="col-lg-3 col-md-3 col-sm-3">
+                            <div _ngcontent-pwr-c5="" class="card card-stats">
+                            <div _ngcontent-pwr-c5="" class="card-header card-header-warning card-header-icon">
+                                <div _ngcontent-pwr-c5="" class="card-icon">
+                                    <i _ngcontent-pwr-c5="" class="material-icons">{{userYear}}</i>
+                                </div>
+                                <p _ngcontent-pwr-c5="" class="card-category">Active Customer</p>
+                                <h3 _ngcontent-pwr-c5="" class="card-title">{{activeCustomer}}
+                                    </h3></div>
+                                    <div _ngcontent-pwr-c5="" class="card-footer">
+                                        <div _ngcontent-pwr-c5="" class="stats">
+                                            <a _ngcontent-pwr-c5="" routerLink="/userleave">
+                                                <i _ngcontent-pwr-c5="" class="material-icons text-success">More Details</i></a>
+                                            </div>
+                                        </div>
+                            </div>
+                            
+                        </div>
+                        <div _ngcontent-pwr-c5="" class="col-lg-3 col-md-3 col-sm-3">
+                            <div _ngcontent-pwr-c5="" class="card card-stats">
+                            <div _ngcontent-pwr-c5="" class="card-header card-header-warning card-header-icon">
+                                <div _ngcontent-pwr-c5="" class="card-icon">
+                                    <i _ngcontent-pwr-c5="" class="material-icons">{{userYear}}</i>
+                                </div>
+                                <p _ngcontent-pwr-c5="" class="card-category">In-Active Customer</p>
+                                <h3 _ngcontent-pwr-c5="" class="card-title">{{inActiveCustomer}}
+                                    </h3></div>
+                                    <div _ngcontent-pwr-c5="" class="card-footer">
+                                        <div _ngcontent-pwr-c5="" class="stats">
+                                            <a _ngcontent-pwr-c5="" routerLink="/userleave">
+                                                <i _ngcontent-pwr-c5="" class="material-icons text-danger">More Details</i></a>
+                                            </div>
+                                        </div>
+                            </div>
+                            
+                        </div>
+        
+    </div>
+                                            

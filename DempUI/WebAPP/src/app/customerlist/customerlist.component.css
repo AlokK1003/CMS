@@ -1,0 +1,10 @@
+.applyle{
+    float: right;
+    cursor: pointer;
+}
+.custForm{
+    margin: 0 0 0 35%;
+}
+.btnsave{margin: 0px 8px 0 0;}
+.btndelete{color: red;
+    margin: 0 0 0 7px;}
